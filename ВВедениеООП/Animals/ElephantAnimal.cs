@@ -9,9 +9,11 @@ namespace ВВедениеООП.Animals
         public ElephantAnimal(string name, int age, int hobotLenght) : base(name, age)
         {
             Biome = BiomType.Tropic;
-            Eat = new string[] { "qqq", "www" };
+            Eat = new string[] { "листья", "арбуз","тыква" };
             _sound = "YYYYYYYY";
+            IsPradator = false;
             HobotLenght = hobotLenght;
+            HungerLevel.
         }
 
         public ElephantAnimal() : base("", 0)
@@ -24,21 +26,31 @@ namespace ВВедениеООП.Animals
             return new Message
             {
                 Text = $"{Name} издает звуки {_sound} из хобота",
-                MessageType = MessageType.Play
             };
         }
 
-        public void ToSound(int n)
+        public Message[] ToSound(int n)
         {
+            Message[] messages = new Message[n];
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine($"{Name} издает звуки {_sound} из хобота");
+                Message message = new Message()
+                {
+                    Text = $"{Name} издает звуки {_sound} из хобота",
+                    Name = this.Name,
+                    MessageType = MessageType.Sound
+                };
+                messages[i] = message;
             }
+            return messages;
         }
          
-        public override void Play()
+        public override Message Play()
         {
-            Console.WriteLine($"{Name} делает Пшшшш водичкой");
+            return new Message()
+            {
+                Text = $"{Name} делает Пшшшш водичкой"
+            };
         }
     }
 }

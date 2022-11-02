@@ -12,14 +12,18 @@ namespace ВВедениеООП.Animals
         public ZebraAnimal(string name, int age) : base(name, age)
         {
             Biome = BiomType.Junle;
-            Eat = new string[] { "qqq" };
+            Eat = new string[] { "зеленые трава","кора","кустарники" };
             _sound = "FirFir";
             IsPradator = false;
         }
 
-        public override void Play()
+        public override Message Play()
         {
-            Console.WriteLine($"{Name} бегает");
+            return new Message()
+            {
+                Text = $"{Name} бегает"
+            };
         }
+
     }
 }

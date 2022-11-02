@@ -8,18 +8,25 @@ using System.Collections.Generic;
 ElephantAnimal elephant = new ElephantAnimal("SLON", 4, 3);
 ZebraAnimal zebra = new ZebraAnimal("Zebra", 2);
 
+Message[] messages = elephant.ToSound(5);
+for (int i = 0; i < messages.Length; i++)
+{
+    Console.WriteLine(messages[i].Text);
+}
+
 List<AbstractAnimal> animals = new List<AbstractAnimal>();
 animals.Add(elephant);
 animals.Add(zebra);
-animals.Add(new ElephantAnimal("slon",2,1));
+animals.Add(new ElephantAnimal("slon", 2, 1));
 
-foreach (AbstractAnimal animal in animals)
+/*foreach (AbstractAnimal animal in animals)
 {
-    animal.Play();
+    //animal.Play();
     
     if (animal is ElephantAnimal)
     {
         //((ElephantAnimal)animal).ToSound(3);
-        Console.WriteLine(animal.ToSound().MessageType);
+        Console.WriteLine(animal.ToSound().Text);
     }
-}
+}*/
+

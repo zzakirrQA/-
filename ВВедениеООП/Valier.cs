@@ -10,5 +10,6 @@ namespace ВВедениеООП
     public class Valier
     {
         public List<AbstractAnimal> Animals { get; set; }
+        public  List<Feed> Feeder { get; set; }
     }
 }

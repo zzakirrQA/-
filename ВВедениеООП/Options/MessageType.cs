@@ -9,6 +9,8 @@ namespace ВВедениеООП.Options
     public enum MessageType
     {
         Play,
-        Eat
+        Eat,
+        Sound,
+        Satiety
     }
 }

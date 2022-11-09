@@ -42,7 +42,7 @@ namespace ВВедениеООП
             {
                 return new Message()
                 {
-                    Text = $"В {Name} не подселился {animal.Name}, так как нет свободного места ",
+                    Text = $"В {Name} не подселился {animal.Name}, так как нет свободного места",
                     SenderName = this.Name,
                     SenderType = "Aviary",
                     MessageType = MessageType.AddingAnimalFailed

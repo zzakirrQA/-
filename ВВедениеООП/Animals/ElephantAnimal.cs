@@ -11,7 +11,7 @@ namespace ВВедениеООП.Animals
             HobotLenght = hobotLenght;
             TypeOfAnimal = "Herbivore";
             AmountOfFoodForDay = 50;
-            Biome = BiomType.Savanna;
+            Biome = BiomType.Tropic;
             Square = 100;
             FoodTypes = new List<FoodType>()
             {

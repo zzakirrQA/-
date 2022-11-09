@@ -15,8 +15,9 @@ namespace ВВедениеООП.Test
         {
             AbstractAnimal animal = new TigerAnimal("Tigrica", 1);
             Aviary aviary = new Aviary("AviaryJungle", BiomType.Junle, 80);
+
             Aviary expectedAviary = new Aviary("AviaryJungle", BiomType.Junle, 80);
-            expectedAviary.Animals.Add(new TigerAnimal("Tigrica", 1));
+            expectedAviary.AddAnimal((new TigerAnimal("Tigrica", 1)));
             Message expectedMessage = new Message()
             {
                 Text = $"В AviaryJungle подселился Tigrica",
@@ -29,11 +30,11 @@ namespace ВВедениеООП.Test
 
             animal = new MonkeyAnimal("Maymun", 2);
             aviary = new Aviary("AviaryForest", BiomType.Forest, 50);
-            aviary.Animals.Add(new MonkeyAnimal("Maymun", 2));
+            aviary.AddAnimal((new MonkeyAnimal("Maymun", 2)));
 
             expectedAviary = new Aviary("AviaryForest", BiomType.Forest, 50);
-            expectedAviary.Animals.Add(new MonkeyAnimal("Maymun", 2));
-            expectedAviary.Animals.Add(new MonkeyAnimal("Maymun", 2));
+            expectedAviary.AddAnimal((new MonkeyAnimal("Maymun", 2)));
+            expectedAviary.AddAnimal((new MonkeyAnimal("Maymun", 2)));
             expectedMessage = new Message()
             {
                 Text = $"В AviaryForest подселился Maymun",
@@ -41,7 +42,21 @@ namespace ВВедениеООП.Test
                 SenderType = "Aviary",
                 MessageType = MessageType.AddingAnimal
             };
+            yield return new object[] { animal, aviary, expectedAviary, expectedMessage };
 
+
+            animal = new ElephantAnimal("Fil", 2,40);
+            aviary = new Aviary("AviaryTropic", BiomType.Tropic, 50);
+
+            expectedAviary = new Aviary("AviaryTropic", BiomType.Tropic, 50);
+            expectedAviary.AddAnimal((new ElephantAnimal("Fil", 2,40)));
+            expectedMessage = new Message()
+            {
+                Text = $"В AviaryTropic не подселился Fil, так как нет свободного места",
+                SenderName = "AviaryTropic",
+                SenderType = "Aviary",
+                MessageType = MessageType.AddingAnimalFailed
+            };
             yield return new object[] { animal, aviary, expectedAviary, expectedMessage };
         }
     }

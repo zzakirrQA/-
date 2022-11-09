@@ -7,35 +7,31 @@ using ВВедениеООП.Options;
 
 namespace ВВедениеООП.Animals
 {
-    public class ZebraAnimal : AbstractAnimal
+    public class TigerAnimal : AbstractAnimal
     {
-        public ZebraAnimal(string name, int age) : base(name, age )
+        public TigerAnimal(string name, int age) : base(name, age)
         {
-            TypeOfAnimal = "Herbivore";
-            AmountOfFoodForDay = 10;
-            Biome = BiomType.Tropic;
+            TypeOfAnimal = "Tiger";
+            AmountOfFoodForDay = 20;
+            Biome = BiomType.Junle;
             Square = 50;
             FoodTypes = new List<FoodType>()
             {
-                FoodType.Leaves,
-                FoodType.Seno,
-                FoodType.Grass
+                FoodType.Meat,
             };
-            IsPradator = false;
-            _sound = "viyt-viyt-viyt";
+            IsPradator = true;
+            _sound = "hhggrrr";
         }
 
         public override Message Play()
         {
-          
             return new Message()
             {
-                Text = $"{Name} бегает",
+                Text = $"{Name} играет с веревкой",
                 SenderName = this.Name,
-                SenderType = "Zebra",
+                SenderType = "Tiger",
                 MessageType = MessageType.Play
             };
         }
-
     }
 }

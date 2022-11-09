@@ -8,106 +8,66 @@ namespace ВВедениеООП.Animals
 {
     public abstract class AbstractAnimal
     {
+        public string TypeOfAnimal { get; protected set; }
         public string Name { get; set; }
         public int Age { get; set; }
+        public int AmountOfFoodForDay { get; protected set; } 
+        public double EatenFood { get; set; }
         public BiomType Biome { get; protected set; }
         public int Square { get; set; }
-        public string[] Eat { get; protected set; }
+        public List<FoodType> FoodTypes { get; protected set; }
         public bool IsPradator { get; protected set; }
+
         protected string _sound;
-        public int HungerLevel { get; protected set; }
-        protected int _neededFood;
 
         public AbstractAnimal(string name, int age)
         {
             Name = name;
             Age = age;
         }
-        public Message IsSatiety()
+
+        public virtual Message Feed(FoodType eat, double foodWeight)
         {
-            if(HungerLevel < _neededFood)
+            string result = "";
+
+            if (!FoodTypes.Contains(eat))
             {
-                return new Message()
-                {
-                    Text = $"{Name} голодный",
-                    Name = this.Name,
-                    MessageType = MessageType.Satiety
-                };
+                result = $"{Name} doesn't eat {eat}";
+            }
+            else if (foodWeight > AmountOfFoodForDay)
+            {
+                result = $"{foodWeight}kg is too much for {Name}";
             }
             else
             {
-                return new Message()
+                if (EatenFood + foodWeight > AmountOfFoodForDay)
                 {
-                    Text = $"{Name} сытый",
-                    Name = this.Name,
-                    MessageType = MessageType.Satiety
-                };
-            }
-        }
-        public Message TheNeedForFood()
-        {
-
-        }
-        /*public Message ToEat(string eat, int kg)
-        {
-            if (Eat.Contains(eat))
-            {
-                return new Message
+                    result = $"{Name} ate {AmountOfFoodForDay - EatenFood}kg of {eat}";
+                    EatenFood = AmountOfFoodForDay;
+                }
+                else
                 {
-                    Text = $"{Name} поел {kg} килограмма {eat}",
-                    Name = this.Name,
-                    MessageType = MessageType.Eat
-                };
-            }
-            else
-            {
-                return new Message
-                {
-                    Text = $"{Name} отказался от {eat}",
-                    Name = this.Name,
-                    MessageType = MessageType.Eat
-                };
-            }
-        }*/
-        public MultipleMessage ToEat()
-        {
-            if (IsEat().Count>0)
-            {
-                int i = 0;
-                MultipleMessage message = new MultipleMessage();
-                message.Name = this.Name;
-                message.MessageType = MessageType.Eat;
-                while (HungerLevel<5)
-                {
-                    message.Texts[i] = $"{Name} поел {IsEat()[i].Amount} {IsEat()[i].Name}";
-                    HungerLevel += IsEat()[i].Amount;
-                    i++;
+                    result = $"{Name} ate {foodWeight}kg of {eat}";
+                    EatenFood += foodWeight;
                 }
             }
-        }
 
-        public List<Feed> IsEat(Lis)
-        {
-            List<Feed> ToChtoMojnoEst = new List<Feed>();
-            for (int i = 0; i < Valier.Feeder.Count; i++)
+            return new Message()
             {
-                for (int j = 0; j < Eat.Length; j++)
-                {
-                    if(Valier.Feeder[i].Name == Eat[j])
-                    {
-                        ToChtoMojnoEst.Add(Valier.Feeder[i]);
-                    }
-                }
-            }
-            return ToChtoMojnoEst;
-
+                Text = result,
+                SenderName = this.Name,
+                SenderType = this.TypeOfAnimal,
+                MessageType = MessageType.Eat
+            };
         }
-        public virtual Message ToSound()
+
+        public virtual Message MakeSound()
         {
             return new Message()
             {
-                Text = $"{this.Name} издает звуки {_sound}",
-                Name = this.Name,
+                Text = $"{Name} izdaet zvuki {_sound}",
+                SenderName = this.Name,
+                SenderType = this.TypeOfAnimal,
                 MessageType = MessageType.Sound
             };
         }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ВВедениеООП", "ВВедениеООП\ВВедениеООП.csproj", "{53883FE5-8F7F-494F-AE38-A1972D9E46C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ВВедениеООП", "ВВедениеООП\ВВедениеООП.csproj", "{53883FE5-8F7F-494F-AE38-A1972D9E46C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ВВедениеООП.Test", "ВВедениеООП.Test\ВВедениеООП.Test.csproj", "{2F2C12F6-CF88-4126-AE62-79F65957B348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{53883FE5-8F7F-494F-AE38-A1972D9E46C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53883FE5-8F7F-494F-AE38-A1972D9E46C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53883FE5-8F7F-494F-AE38-A1972D9E46C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2C12F6-CF88-4126-AE62-79F65957B348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2C12F6-CF88-4126-AE62-79F65957B348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2C12F6-CF88-4126-AE62-79F65957B348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2C12F6-CF88-4126-AE62-79F65957B348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

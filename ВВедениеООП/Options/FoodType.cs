@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace ВВедениеООП.Options
 {
-    public enum MessageType
+    public enum FoodType
     {
-        Play,
-        Eat,
-        Sound,
-        AddingAnimal,
-        AddingAnimalFailed
-           
+        Fish,
+        Honey,
+        Watermelon,
+        Pumpkin,
+        Grass,
+        Seno,
+        Banan,
+        Meat,
+        Leaves 
     }
 }

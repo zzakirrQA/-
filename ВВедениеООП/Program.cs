@@ -4,8 +4,20 @@ using ВВедениеООП.Animals;
 using System.Collections;
 using System.Collections.Generic;
 
+Console.WriteLine();
 
-ElephantAnimal elephant = new ElephantAnimal("SLON", 4, 3);
+
+
+
+
+
+
+
+
+
+
+
+/*ElephantAnimal elephant = new ElephantAnimal("SLON", 4, 3);
 ZebraAnimal zebra = new ZebraAnimal("Zebra", 2);
 
 Message[] messages = elephant.ToSound(5);
@@ -18,7 +30,7 @@ List<AbstractAnimal> animals = new List<AbstractAnimal>();
 animals.Add(elephant);
 animals.Add(zebra);
 animals.Add(new ElephantAnimal("slon", 2, 1));
-
+*/
 /*foreach (AbstractAnimal animal in animals)
 {
     //animal.Play();

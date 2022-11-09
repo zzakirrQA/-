@@ -10,6 +10,8 @@ namespace ВВедениеООП.Options
     {
         Tropic,
         Junle,
-        Forest
+        Forest,
+        Meadows,
+        Savanna
     }
 }

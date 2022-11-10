@@ -98,13 +98,24 @@ namespace ВВедениеООП
 
         }
 
+        public List<Message> MakeSoundAll()
+        {
+            List<Message> messages = new List<Message>();
+            foreach (var item in Animals)
+            {
+                messages.Add(item.MakeSound());
+            }
+            return messages;
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is Aviary aviary &&
                    Name == aviary.Name &&
                    Biom == aviary.Biom &&
                    TotalArea == aviary.TotalArea &&
-                   Animals.Count == aviary.Animals.Count;
+                   Animals.ToString() == aviary.Animals.ToString();
         }
+
     }
 }

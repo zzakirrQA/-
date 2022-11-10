@@ -16,5 +16,14 @@ namespace ВВедениеООП.Test
             Assert.AreEqual(expectedAviary, actualAviary);
             Assert.AreEqual(expectedMessage, actualMessage);
         }
+
+
+        [TestCaseSource(typeof(MakeSoundAllTestSource))]
+        public void MakeSoundAllTest(List<Message> messages, List<Message> expectedMessages)
+        {
+            List<Message> actualMessages = messages;
+
+            Assert.AreEqual(actualMessages, expectedMessages);
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace ВВедениеООП.Test
             };
             yield return new object[] { animal, aviary, expectedAviary, expectedMessage };
 
-
+            //for space
             animal = new ElephantAnimal("Fil", 2,40);
             aviary = new Aviary("AviaryTropic", BiomType.Tropic, 50);
 
@@ -58,6 +58,67 @@ namespace ВВедениеООП.Test
                 MessageType = MessageType.AddingAnimalFailed
             };
             yield return new object[] { animal, aviary, expectedAviary, expectedMessage };
+
+            //for biom
+            animal = new BearAnimal("Masa", 2);
+            aviary = new Aviary("AviarySavanna", BiomType.Savanna, 200);
+
+            expectedAviary = new Aviary("AviarySavanna", BiomType.Savanna, 200);
+            expectedAviary.AddAnimal((new BearAnimal("Masa", 2)));
+            expectedMessage = new Message()
+            {
+                Text = $"В AviarySavanna не подселился Masa, так как биомы не совпадают",
+                SenderName = "AviarySavanna",
+                SenderType = "Aviary",
+                MessageType = MessageType.AddingAnimalFailed
+            };
+            yield return new object[] { animal, aviary, expectedAviary, expectedMessage };
+        }
+
+    }
+
+    public class MakeSoundAllTestSource:IEnumerable
+    {
+        public IEnumerator GetEnumerator()
+        {
+            List<AbstractAnimal> animals = new List<AbstractAnimal>();
+            AbstractAnimal animal1 = new ZebraAnimal("mokoto", 1);
+            animals.Add(animal1);
+            AbstractAnimal animal2 = new ZebraAnimal("komoto", 1);
+            animals.Add(animal2);
+            AbstractAnimal animal3 = new ZebraAnimal("momoto", 1);
+            animals.Add(animal3);
+            Aviary aviary = new Aviary("ForZebr",BiomType.Tropic, 300);
+            aviary.Animals = animals;
+            List<Message> messages = aviary.MakeSoundAll();
+
+            List<Message> expectedMessages = new List<Message>()
+            {
+                new Message()
+                {
+                    Text = $"mokoto izdaet zvuki viyt-viyt-viyt",
+                    SenderName = "mokoto",
+                    SenderType = "Herbivore",
+                    MessageType = MessageType.Sound
+                },
+                 new Message()
+                {
+                    Text = $"komoto izdaet zvuki viyt-viyt-viyt",
+                    SenderName = "komoto",
+                    SenderType = "Herbivore",
+                    MessageType = MessageType.Sound
+                },
+                  new Message()
+                {
+                    Text = $"momoto izdaet zvuki viyt-viyt-viyt",
+                    SenderName = "momoto",
+                    SenderType = "Herbivore",
+                    MessageType = MessageType.Sound
+                }
+            };
+            yield return new object[] {messages,expectedMessages};
+
+
         }
     }
 }

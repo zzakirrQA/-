@@ -7,7 +7,13 @@ using System.Collections.Generic;
 Console.WriteLine();
 
 
-
+List<int> ints = new List<int>() { 1,2,3};
+List<int> ints2 = new List<int>() { 4,5,6};
+ints = ints2;
+foreach (var item in ints)
+{
+    Console.WriteLine(item);
+}
 
 
 
